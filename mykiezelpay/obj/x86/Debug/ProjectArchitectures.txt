@@ -1,0 +1,2 @@
+C:\Users\franc\source\repos\mykiezelpay\datakiezel\datakiezel.csproj;x86
+C:\Users\franc\source\repos\mykiezelpay\mykiezelpay\mykiezelpay.csproj;x86

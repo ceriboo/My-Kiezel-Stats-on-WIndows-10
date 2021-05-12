@@ -1,0 +1,390 @@
+﻿<Page
+    x:Class="mykiezelpay.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:mykiezelpay"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal"  >
+            
+
+            <AppBarButton x:ConnectionId='2' IsEnabled="{Binding IsEnabled,ElementName=carte}" Visibility="Collapsed" x:Name="actualite" Label="settings" Icon="Setting"                      />
+            <AppBarButton x:ConnectionId='3' IsEnabled="{Binding IsEnabled,ElementName=carte}" x:Name="update" Icon="RepeatAll" Label="update"                        >
+              
+            </AppBarButton>
+
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:ConnectionId='4' IsEnabled="{Binding IsEnabled,ElementName=carte}" Name="lapropos" Label="about"                        />
+                <!--<AppBarButton IsEnabled="{Binding IsEnabled,ElementName=carte}" x:Name="loption" Label="option" Icon="Setting" Click="loption_Click" />-->
+                <AppBarButton x:ConnectionId='5' IsEnabled="{Binding IsEnabled,ElementName=carte}" x:Name="politique" Label="privacy policy"                          />
+                
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+
+
+
+                <VisualState x:ConnectionId='6' x:Name="Laptop">
+                    <VisualState.Setters>
+                        <Setter Value="40" Target="titrefitbit.(FontSize)"/>
+                        <Setter Value="40" Target="titregarmin.(FontSize)"/>
+                        <Setter Value="40" Target="titrepebble.(FontSize)"/>
+                        <Setter Value="40" Target="titretotal.(FontSize)"/>
+                        <Setter Value="40" Target="purchasestitre.(FontSize)"/>
+                        <Setter Value="70" Target="purchasesfitbit.(FontSize)"/>
+                        <Setter Value="70" Target="purchasesgarmin.(FontSize)"/>
+                        <Setter Value="70" Target="purchasespebble.(FontSize)"/>
+                        <Setter Value="70" Target="purchasestotal.(FontSize)"/>
+                        <Setter Value="70" Target="purchasesfitbit2.(FontSize)"/>
+                        <Setter Value="70" Target="purchasesgarmin2.(FontSize)"/>
+                        <Setter Value="70" Target="purchasespebble2.(FontSize)"/>
+                        <Setter Value="70" Target="purchasestotal2.(FontSize)"/>
+                        <Setter Value="40" Target="amounttitre.(FontSize)"/>
+                        <Setter Value="70" Target="amountfitbit.(FontSize)"/>
+                        <Setter Value="70" Target="amountgarmin.(FontSize)"/>
+                        <Setter Value="70" Target="amountpebble.(FontSize)"/>
+                        <Setter Value="70" Target="amounttotal.(FontSize)"/>
+                        <Setter Value="70" Target="amountfitbit2.(FontSize)"/>
+                        <Setter Value="70" Target="amountgarmin2.(FontSize)"/>
+                        <Setter Value="70" Target="amountpebble2.(FontSize)"/>
+                        <Setter Value="70" Target="amounttotal2.(FontSize)"/>
+                        <Setter Value="40" Target="ranktitre.(FontSize)"/>
+                        <Setter Value="70" Target="rankfitbit.(FontSize)"/>
+                        <Setter Value="70" Target="rankgarmin.(FontSize)"/>
+                        <Setter Value="70" Target="rankpebble.(FontSize)"/>
+                        <Setter Value="70" Target="ranktotal.(FontSize)"/>
+                        <Setter Value="70" Target="rankfitbit2.(FontSize)"/>
+                        <Setter Value="70" Target="rankgarmin2.(FontSize)"/>
+                        <Setter Value="70" Target="rankpebble2.(FontSize)"/>
+                        <Setter Value="70" Target="ranktotal2.(FontSize)"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1200"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+
+                <VisualState x:ConnectionId='7' x:Name="WP">
+                    <VisualState.Setters>
+                        <Setter Value="30" Target="titrefitbit.(FontSize)"/>
+                        <Setter Value="30" Target="titregarmin.(FontSize)"/>
+                        <Setter Value="30" Target="titrepebble.(FontSize)"/>
+                        <Setter Value="30" Target="titretotal.(FontSize)"/>
+                        <Setter Value="30" Target="purchasestitre.(FontSize)"/>
+                        <Setter Value="30" Target="purchasesfitbit.(FontSize)"/>
+                        <Setter Value="30" Target="purchasesgarmin.(FontSize)"/>
+                        <Setter Value="30" Target="purchasespebble.(FontSize)"/>
+                        <Setter Value="30" Target="purchasestotal.(FontSize)"/>
+                        <Setter Value="30" Target="purchasesfitbit2.(FontSize)"/>
+                        <Setter Value="30" Target="purchasesgarmin2.(FontSize)"/>
+                        <Setter Value="30" Target="purchasespebble2.(FontSize)"/>
+                        <Setter Value="30" Target="purchasestotal2.(FontSize)"/>
+                        <Setter Value="30" Target="amounttitre.(FontSize)"/>
+                        <Setter Value="30" Target="amountfitbit.(FontSize)"/>
+                        <Setter Value="30" Target="amountgarmin.(FontSize)"/>
+                        <Setter Value="30" Target="amountpebble.(FontSize)"/>
+                        <Setter Value="30" Target="amounttotal.(FontSize)"/>
+                        <Setter Value="30" Target="amountfitbit2.(FontSize)"/>
+                        <Setter Value="30" Target="amountgarmin2.(FontSize)"/>
+                        <Setter Value="30" Target="amountpebble2.(FontSize)"/>
+                        <Setter Value="30" Target="amounttotal2.(FontSize)"/>
+                        <Setter Value="30" Target="ranktitre.(FontSize)"/>
+                        <Setter Value="30" Target="rankfitbit.(FontSize)"/>
+                        <Setter Value="30" Target="rankgarmin.(FontSize)"/>
+                        <Setter Value="30" Target="rankpebble.(FontSize)"/>
+                        <Setter Value="30" Target="ranktotal.(FontSize)"/>
+                        <Setter Value="30" Target="rankfitbit2.(FontSize)"/>
+                        <Setter Value="30" Target="rankgarmin2.(FontSize)"/>
+                        <Setter Value="30" Target="rankpebble2.(FontSize)"/>
+                        <Setter Value="30" Target="ranktotal2.(FontSize)"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger  MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+
+                <VisualState x:ConnectionId='8' x:Name="IoT">
+                    <VisualState.Setters>
+                        <Setter Value="40" Target="titrefitbit.(FontSize)"/>
+                        <Setter Value="40" Target="titregarmin.(FontSize)"/>
+                        <Setter Value="40" Target="titrepebble.(FontSize)"/>
+                        <Setter Value="40" Target="titretotal.(FontSize)"/>
+                        <Setter Value="40" Target="purchasestitre.(FontSize)"/>
+                        <Setter Value="55" Target="purchasesfitbit.(FontSize)"/>
+                        <Setter Value="55" Target="purchasesgarmin.(FontSize)"/>
+                        <Setter Value="55" Target="purchasespebble.(FontSize)"/>
+                        <Setter Value="55" Target="purchasestotal.(FontSize)"/>
+                        <Setter Value="55" Target="purchasesfitbit2.(FontSize)"/>
+                        <Setter Value="55" Target="purchasesgarmin2.(FontSize)"/>
+                        <Setter Value="55" Target="purchasespebble2.(FontSize)"/>
+                        <Setter Value="55" Target="purchasestotal2.(FontSize)"/>
+                        <Setter Value="40" Target="amounttitre.(FontSize)"/>
+                        <Setter Value="55" Target="amountfitbit.(FontSize)"/>
+                        <Setter Value="55" Target="amountgarmin.(FontSize)"/>
+                        <Setter Value="55" Target="amountpebble.(FontSize)"/>
+                        <Setter Value="55" Target="amounttotal.(FontSize)"/>
+                        <Setter Value="55" Target="amountfitbit2.(FontSize)"/>
+                        <Setter Value="55" Target="amountgarmin2.(FontSize)"/>
+                        <Setter Value="55" Target="amountpebble2.(FontSize)"/>
+                        <Setter Value="55" Target="amounttotal2.(FontSize)"/>
+                        <Setter Value="40" Target="ranktitre.(FontSize)"/>
+                        <Setter Value="55" Target="rankfitbit.(FontSize)"/>
+                        <Setter Value="55" Target="rankgarmin.(FontSize)"/>
+                        <Setter Value="55" Target="rankpebble.(FontSize)"/>
+                        <Setter Value="55" Target="ranktotal.(FontSize)"/>
+                        <Setter Value="55" Target="rankfitbit2.(FontSize)"/>
+                        <Setter Value="55" Target="rankgarmin2.(FontSize)"/>
+                        <Setter Value="55" Target="rankpebble2.(FontSize)"/>
+                        <Setter Value="55" Target="ranktotal2.(FontSize)"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger  MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+          
+            <Pivot x:ConnectionId='9' Grid.Row="1" x:Name="pivotair" 
+					SelectedIndex="0" >
+                <PivotItem >
+                    <PivotItem.Header>
+                        <TextBlock x:ConnectionId='13' Name="titrehier" TextAlignment="Center" FontSize="30" Text="Overall" VerticalAlignment="Bottom"/>
+                    </PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.Resources>
+                            <Storyboard x:ConnectionId='14' x:Name="ihmparss" >
+                                <DoubleAnimation
+							Storyboard.TargetName="ihmbouge"
+               
+							Storyboard.TargetProperty="X"
+                    BeginTime="0:0:5"
+							From="0"  To="2000" Duration="0:0:1"/>
+                                <DoubleAnimation
+							Storyboard.TargetName="gridihm"
+               
+							Storyboard.TargetProperty="Opacity"
+                    BeginTime="0:0:5"
+							From="1"  To="0" Duration="0:0:0.2"/>
+
+                            </Storyboard>
+                            <Storyboard x:ConnectionId='15' x:Name="ihmviens"                               >
+                                <DoubleAnimation
+							Storyboard.TargetName="ihmbouge"
+               
+							Storyboard.TargetProperty="X"
+							From="-2000"  To="0" Duration="0:0:1"/>
+                                <DoubleAnimation
+							Storyboard.TargetName="gridihm"
+               
+							Storyboard.TargetProperty="Opacity"
+                    BeginTime="0:0:0.9"
+							From="0"  To="1" Duration="0:0:0.1"/>
+
+                            </Storyboard>
+                        </Grid.Resources>
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- tableau-->
+                        <Rectangle StrokeThickness="3" Grid.Row="1"  Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Row="2" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Row="3" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Row="4" Stroke="White"/>
+                        <TextBlock x:ConnectionId='21' Name="titrefitbit"  Text="Fitbit" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='22' Name="titregarmin" Text="Garmin" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='23' Name="titrepebble" Text="Pebble" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='24' Name="titretotal" Text="Total" Grid.Row="4" TextAlignment="Center" VerticalAlignment="Center"/>
+
+                        <!-- nb purchases-->
+                        <Rectangle StrokeThickness="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Stroke="White"/>
+                        <TextBlock x:ConnectionId='25' Margin="5,0" Name="purchasestitre" Grid.ColumnSpan="2"  Text="Nb purch. " Grid.Column="1" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='26' Name="purchasesfitbit" Text="----" Grid.Column="1" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='27' Name="purchasesgarmin" Text="----" Grid.Column="1" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='28' Name="purchasespebble" Text="----" Grid.Column="1" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='29' Name="purchasestotal" Text="----" Grid.Column="1" Grid.Row="4" TextAlignment="Center" VerticalAlignment="Center"/>
+
+                        <TextBlock x:ConnectionId='30' Name="purchasesfitbit2" Text="(-)" Foreground="Green" Grid.Column="2" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:ConnectionId='31' Name="purchasesgarmin2" Text="(-)" Foreground="Red" Grid.Column="2" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:ConnectionId='32' Name="purchasespebble2" Text="(-)" Grid.Column="2" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:ConnectionId='33' Name="purchasestotal2" Text="(-)" Grid.Column="2" Grid.Row="4" TextAlignment="Center" VerticalAlignment="Center" />
+
+
+
+                        <!-- amount-->
+                        <Rectangle StrokeThickness="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="0" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Stroke="White"/>
+
+                        <TextBlock x:ConnectionId='34' Margin="5,0" Name="amounttitre" Grid.ColumnSpan="2" Text="Amount" Grid.Column="3" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='35' Name="amountfitbit" Text="----" Grid.Column="3" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='36' Name="amountgarmin" Text="----" Grid.Column="3" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='37' Name="amountpebble" Text="----" Grid.Column="3" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='38' Name="amounttotal" Text="----" Grid.Column="3" Grid.Row="4" TextAlignment="Center" VerticalAlignment="Center"/>
+
+                        <TextBlock x:ConnectionId='39' Name="amountfitbit2" Text="(-)" Foreground="Green" Grid.Column="4" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:ConnectionId='40' Name="amountgarmin2" Text="(-)" Foreground="Red" Grid.Column="4" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:ConnectionId='41' Name="amountpebble2" Text="(-)" Grid.Column="4" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:ConnectionId='42' Name="amounttotal2" Text="(-)" Grid.Column="4" Grid.Row="4" TextAlignment="Center" VerticalAlignment="Center" />
+
+
+                        <!--rank-->
+
+                        <Rectangle StrokeThickness="3" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="0" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="1" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="2" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="3" Stroke="White"/>
+                        <Rectangle StrokeThickness="3" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" Stroke="White"/>
+                        <TextBlock x:ConnectionId='43' Margin="5,0" Name="ranktitre" Grid.ColumnSpan="2" Text="Rank" Grid.Column="5" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='44' Name="rankfitbit" Text="----" Grid.Column="5" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='45' Name="rankgarmin" Text="----" Grid.Column="5" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='46' Name="rankpebble" Text="----" Grid.Column="5" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:ConnectionId='47' Name="ranktotal" Text="----" Grid.Column="5" Grid.Row="4" TextAlignment="Center" VerticalAlignment="Center"/>
+
+                        <TextBlock x:ConnectionId='48' Name="rankfitbit2" Text="(-)" Foreground="Green" Grid.Column="6" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:ConnectionId='49' Name="rankgarmin2" Text="(-)" Foreground="Red" Grid.Column="6" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:ConnectionId='50' Name="rankpebble2" Text="(-)" Grid.Column="6" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:ConnectionId='51' Name="ranktotal2" Text="(-)" Grid.Column="6" Grid.Row="4" TextAlignment="Center" VerticalAlignment="Center" />
+
+
+                    </Grid>
+
+                        <Grid x:ConnectionId='16' Grid.Row="0" Background="#FF4aa46a" Height="80" VerticalAlignment="top" HorizontalAlignment="Center" Name="gridihm" Opacity="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="300"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/logo.png"/>
+                            <TextBlock x:ConnectionId='19' Text="new purchase !" Foreground="White" FontSize="30" TextAlignment="Center"  Name="ihm" Grid.Column="1" VerticalAlignment="Center" />
+                            <Grid.RenderTransform>
+                                <TranslateTransform x:ConnectionId='20' x:Name="ihmbouge" X="-2000" />
+                            </Grid.RenderTransform>
+
+                        </Grid>
+                        <TextBlock x:ConnectionId='17' Name="_totalpurchase" Grid.Row="1" Text="last update:" TextAlignment="Right"/>
+                        <TextBlock x:ConnectionId='18' Name="_lastupdate" Grid.Row="2" Text="last update:" TextAlignment="Right"/>
+                    </Grid>
+                </PivotItem>
+
+                <PivotItem >
+                    <PivotItem.Header>
+                        <TextBlock x:ConnectionId='10' Name="titredemain" TextAlignment="Center" FontSize="30" Text="My apps/Clockfaces" VerticalAlignment="Bottom"/>
+                    </PivotItem.Header>
+                    <ListView x:ConnectionId='11' VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" ItemContainerStyle="{StaticResource ListViewItemStyle}"   x:Name="listviewapps"                               >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Grid Margin="10,10,10,0" >
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup>
+
+
+
+                                            <VisualState x:Name="Laptop">
+                                                <VisualState.Setters>
+                                                    <Setter Value="500" Target="lacolonne.(Width)"/>
+                                                </VisualState.Setters>
+                                                <VisualState.StateTriggers>
+                                                    <AdaptiveTrigger MinWindowWidth="1200"/>
+                                                </VisualState.StateTriggers>
+                                            </VisualState>
+
+                                            <VisualState x:Name="WP">
+                                                <VisualState.Setters>
+                                                    <Setter Value="200" Target="lacolonne.(Width)"/>
+                                                </VisualState.Setters>
+                                                <VisualState.StateTriggers>
+                                                    <AdaptiveTrigger  MinWindowWidth="900"/>
+                                                </VisualState.StateTriggers>
+                                            </VisualState>
+
+                                            <VisualState x:Name="raspberry">
+                                                <VisualState.Setters>
+                                                    <Setter Value="200" Target="lacolonne.(Width)"/>
+                                                    <Setter Value="100" Target="image.(Width)"/>
+                                                    <Setter Value="100" Target="image.(Height)"/>
+                                                </VisualState.Setters>
+                                                <VisualState.StateTriggers>
+                                                    <AdaptiveTrigger  MinWindowWidth="0"/>
+                                                </VisualState.StateTriggers>
+                                            </VisualState>
+
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Rectangle Stroke="White" StrokeThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Grid Margin="5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="120"/>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition x:Name="lacolonne" Width="350" />
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Name="image" VerticalAlignment="Center" Width="200" Height="200" Source="{Binding image, Mode=OneWay}"/>
+                                        <TextBlock Margin="10" TextWrapping="Wrap" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding name}"/>
+                                        <TextBlock Margin="10" Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding price}"/>
+                                        <TextBlock Margin="10" TextWrapping="Wrap" Grid.Column="3" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding description}"/>
+                                    </Grid>
+
+
+                                </Grid>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+
+                </PivotItem>
+
+              
+            </Pivot>
+           
+
+        </Grid>
+    </Grid>
+</Page>
+
