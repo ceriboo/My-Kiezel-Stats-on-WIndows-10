@@ -33,20 +33,24 @@ namespace mykiezelpay
     public sealed partial class MainPage : Page
     {
 
-        
+        WavePlayer _wavePlayer = new WavePlayer();
+
         string url = "https://api.kiezelpay.com/api/merchant/today?offset={0}&key=";
         string urlyesterday = "https://api.kiezelpay.com/api/merchant/yesterday?offset={0}&key=";
-        string urlapps = "";
+        
         DispatcherTimer period = new DispatcherTimer();
         mydata resultat2;
         int lachat;
+        int _loading = 4;
         public MainPage()
         {
             this.InitializeComponent();
+            _wavePlayer.AddWave("purchase", "Assets/audio.wav");
             this.NavigationCacheMode =
                                         Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
+            _clock.Text = String.Format("{0}", DateTime.Now.ToString("HH:mm"));
             period.Tick += Period_Tick;
-            period.Interval = new TimeSpan(0, 5, 0);
+            period.Interval = new TimeSpan(0, 1, 0);
             recupaujourdhui("fitbit");
             recupaujourdhui("pebble");
             recupaujourdhui("garmin");
@@ -63,18 +67,26 @@ namespace mykiezelpay
 
         private void Period_Tick(object sender, object e)
         {
-            Debug.WriteLine("tick");
-            recupaujourdhui("fitbit");
-            recupaujourdhui("pebble");
-            recupaujourdhui("garmin");
-            recupaujourdhui("");
-            updatelistapps();
-            summary();
+            _clock.Text = String.Format("{0}", DateTime.Now.ToString("HH:mm"));
+
+            if (DateTime.Now.Second % 5 == 0)
+            {
+                _loading = 4;
+                Debug.WriteLine("tick");
+                recupaujourdhui("fitbit");
+                recupaujourdhui("pebble");
+                recupaujourdhui("garmin");
+                recupaujourdhui("");
+                updatelistapps();
+                summary();
+            }
+
         }
 
 
         private void refresh_Click(object sender, RoutedEventArgs e)
         {
+            _loading = 4;
             Debug.WriteLine("tick");
             recupaujourdhui("fitbit");
             recupaujourdhui("pebble");
@@ -85,6 +97,7 @@ namespace mykiezelpay
 
         async void recupaujourdhui(string platform)
         {
+            loading.Visibility = Visibility.Visible;
             int utc = Math.Abs((DateTimeKind.Local - DateTimeKind.Utc) * 60);
             string _url = String.Format(url, utc.ToString()) + App.Apikey;
             string _url2 = String.Format(urlyesterday, utc.ToString()) + App.Apikey;
@@ -109,7 +122,7 @@ namespace mykiezelpay
             {
                 var toto = await laresponse.Content.ReadAsStringAsync();
                 var toto2 = await laresponse2.Content.ReadAsStringAsync();
-                Console.WriteLine(toto);
+                //Console.WriteLine(toto);
                 toto = "{\"datakiezel\":" + toto.ToString() + "}";
                 toto2 = "{\"datakiezel\":" + toto2.ToString() + "}";
 
@@ -187,6 +200,7 @@ namespace mykiezelpay
                         if (resultat.datakiezel.purchases == 0) lachat = 0;
                         if (resultat.datakiezel.purchases > lachat)
                         {
+                            _wavePlayer.PlayWave("purchase");
                             ihmviens.Begin();
                             lachat = resultat.datakiezel.purchases;
                         }
@@ -198,6 +212,8 @@ namespace mykiezelpay
             {
               //  error("cannot retrieve data");
             }
+            _loading--;
+            if (_loading == 0) loading.Visibility = Visibility.Collapsed;
         }
 
         private void ihmviens_Completed(object sender, object e)
@@ -299,16 +315,6 @@ namespace mykiezelpay
             }
         }
 
-        private void loption_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(option));
-        }
-
-        private async void politique_Click(object sender, RoutedEventArgs e)
-        {
-            await Launcher.LaunchUriAsync(new Uri("http://ceriboowp.fr/airidf/airidf.html"));
-        }
-
         private void lapropos_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(apropos));
@@ -327,7 +333,7 @@ namespace mykiezelpay
             {
                 var toto = await laresponse.Content.ReadAsStringAsync();
                
-                Debug.WriteLine(toto);
+                //Debug.WriteLine(toto);
                 toto =  toto.ToString();
               
                  App.mylist = JsonConvert.DeserializeObject<dataapps>(toto);
@@ -366,6 +372,22 @@ namespace mykiezelpay
             var appchoisie = (sender as ListView).SelectedItem as Product;
 
             var a = 0;
+        }
+
+        private void Clockmode_Click(object sender, RoutedEventArgs e)
+        {
+            kstats.Visibility = Visibility.Collapsed;
+            clockmode.Visibility = Visibility.Collapsed;
+            kclock.Visibility = Visibility.Visible;
+            kiezel.Visibility = Visibility.Visible;
+        }
+
+        private void Kiezel_Click(object sender, RoutedEventArgs e)
+        {
+            kclock.Visibility = Visibility.Collapsed;
+            clockmode.Visibility = Visibility.Visible;
+            kiezel.Visibility = Visibility.Collapsed;
+            kstats.Visibility = Visibility.Visible;
         }
     }
 }
