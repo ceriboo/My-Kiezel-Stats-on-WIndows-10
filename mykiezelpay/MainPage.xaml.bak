@@ -7,23 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.TopAppBar>
+        <CommandBar   Background="#FF4aa46a" Visibility="Collapsed" />
+    </Page.TopAppBar>
     <Page.BottomAppBar>
-        <CommandBar ClosedDisplayMode="Minimal"  >
-            
+        <CommandBar ClosedDisplayMode="Compact"  Background="#FF4aa46a" >
 
-            <AppBarButton IsEnabled="{Binding IsEnabled,ElementName=carte}" Visibility="Collapsed" x:Name="actualite" Label="settings" Icon="Setting" Click="loption_Click"/>
-            <AppBarButton IsEnabled="{Binding IsEnabled,ElementName=carte}" x:Name="update" Icon="RepeatAll" Label="update" Click="refresh_Click"  >
+            <AppBarButton  x:Name="clockmode" Icon="Clock" Label="clock" Click="Clockmode_Click"  >
+
+            </AppBarButton>
+
+            <AppBarButton x:Name="kiezel" Click="Kiezel_Click" Visibility="Collapsed">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe UI" Glyph="$"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+            <AppBarButton x:Name="update" Icon="RepeatAll" Label="update" Click="refresh_Click"  >
               
             </AppBarButton>
 
 
-            <CommandBar.SecondaryCommands>
-                <AppBarButton IsEnabled="{Binding IsEnabled,ElementName=carte}" Name="lapropos" Label="about" Click="lapropos_Click" />
-                <!--<AppBarButton IsEnabled="{Binding IsEnabled,ElementName=carte}" x:Name="loption" Label="option" Icon="Setting" Click="loption_Click" />-->
-                <AppBarButton IsEnabled="{Binding IsEnabled,ElementName=carte}" x:Name="politique" Label="privacy policy" Click="politique_Click"  />
-                
-            </CommandBar.SecondaryCommands>
+            
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -67,50 +72,13 @@
                         <Setter Value="70" Target="rankgarmin2.(FontSize)"/>
                         <Setter Value="70" Target="rankpebble2.(FontSize)"/>
                         <Setter Value="70" Target="ranktotal2.(FontSize)"/>
+                        <Setter Value="650" Target="_clock.(FontSize)"/>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="1200"/>
                     </VisualState.StateTriggers>
                 </VisualState>
 
-                <VisualState x:Name="WP">
-                    <VisualState.Setters>
-                        <Setter Value="30" Target="titrefitbit.(FontSize)"/>
-                        <Setter Value="30" Target="titregarmin.(FontSize)"/>
-                        <Setter Value="30" Target="titrepebble.(FontSize)"/>
-                        <Setter Value="30" Target="titretotal.(FontSize)"/>
-                        <Setter Value="30" Target="purchasestitre.(FontSize)"/>
-                        <Setter Value="30" Target="purchasesfitbit.(FontSize)"/>
-                        <Setter Value="30" Target="purchasesgarmin.(FontSize)"/>
-                        <Setter Value="30" Target="purchasespebble.(FontSize)"/>
-                        <Setter Value="30" Target="purchasestotal.(FontSize)"/>
-                        <Setter Value="30" Target="purchasesfitbit2.(FontSize)"/>
-                        <Setter Value="30" Target="purchasesgarmin2.(FontSize)"/>
-                        <Setter Value="30" Target="purchasespebble2.(FontSize)"/>
-                        <Setter Value="30" Target="purchasestotal2.(FontSize)"/>
-                        <Setter Value="30" Target="amounttitre.(FontSize)"/>
-                        <Setter Value="30" Target="amountfitbit.(FontSize)"/>
-                        <Setter Value="30" Target="amountgarmin.(FontSize)"/>
-                        <Setter Value="30" Target="amountpebble.(FontSize)"/>
-                        <Setter Value="30" Target="amounttotal.(FontSize)"/>
-                        <Setter Value="30" Target="amountfitbit2.(FontSize)"/>
-                        <Setter Value="30" Target="amountgarmin2.(FontSize)"/>
-                        <Setter Value="30" Target="amountpebble2.(FontSize)"/>
-                        <Setter Value="30" Target="amounttotal2.(FontSize)"/>
-                        <Setter Value="30" Target="ranktitre.(FontSize)"/>
-                        <Setter Value="30" Target="rankfitbit.(FontSize)"/>
-                        <Setter Value="30" Target="rankgarmin.(FontSize)"/>
-                        <Setter Value="30" Target="rankpebble.(FontSize)"/>
-                        <Setter Value="30" Target="ranktotal.(FontSize)"/>
-                        <Setter Value="30" Target="rankfitbit2.(FontSize)"/>
-                        <Setter Value="30" Target="rankgarmin2.(FontSize)"/>
-                        <Setter Value="30" Target="rankpebble2.(FontSize)"/>
-                        <Setter Value="30" Target="ranktotal2.(FontSize)"/>
-                    </VisualState.Setters>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger  MinWindowWidth="900"/>
-                    </VisualState.StateTriggers>
-                </VisualState>
 
                 <VisualState x:Name="IoT">
                     <VisualState.Setters>
@@ -145,6 +113,7 @@
                         <Setter Value="55" Target="rankgarmin2.(FontSize)"/>
                         <Setter Value="55" Target="rankpebble2.(FontSize)"/>
                         <Setter Value="55" Target="ranktotal2.(FontSize)"/>
+                        <Setter Value="200" Target="_clock.(FontSize)"/>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger  MinWindowWidth="0"/>
@@ -152,7 +121,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Grid>
+        <Grid Name="kstats">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="1*" />
@@ -370,10 +339,13 @@
 
               
             </Pivot>
-           
+            <ProgressRing Name="loading" Width="200" Height="200" IsActive="True" Foreground="#FF4aa46a"/>
 
         </Grid>
+        <Grid Name="kclock" Visibility="Collapsed">
 
+            <TextBlock Name="_clock" FontSize="100" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
         <Grid Grid.Row="0" Background="#FF4aa46a" Height="80" VerticalAlignment="top" HorizontalAlignment="Center" Name="gridihm" Opacity="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
@@ -387,5 +359,6 @@
             </Grid.RenderTransform>
 
         </Grid>
+       
     </Grid>
 </Page>

@@ -58,19 +58,18 @@ namespace mykiezelpay
             updatelistapps();
             summary();
             period.Start();
-            /*var bounds = Window.Current.Bounds;
+            var bounds = Window.Current.Bounds;
             double height = bounds.Height;
             Debug.WriteLine(height);
             double width = bounds.Width;
-            Debug.WriteLine(width);*/
-            
+            Debug.WriteLine(width);
         }
 
         private void Period_Tick(object sender, object e)
         {
             _clock.Text = String.Format("{0}", DateTime.Now.ToString("HH:mm"));
 
-            if (DateTime.Now.Minute % 30 == 0)
+            if (DateTime.Now.Second % 5 == 0)
             {
                 _loading = 4;
                 Debug.WriteLine("tick");
@@ -201,7 +200,7 @@ namespace mykiezelpay
                         if (resultat.datakiezel.purchases == 0) lachat = 0;
                         if (resultat.datakiezel.purchases > lachat)
                         {
-                          if (DateTime.Now.Hour<22 && DateTime.Now.Hour>9)  _wavePlayer.PlayWave("purchase");
+                            _wavePlayer.PlayWave("purchase");
                             ihmviens.Begin();
                             lachat = resultat.datakiezel.purchases;
                         }
@@ -362,7 +361,7 @@ namespace mykiezelpay
                 var summary = JsonConvert.DeserializeObject<datasummary>(toto);
 
                 Debug.WriteLine(summary.totalPurchases);
-                _totalpurchase.Text = String.Format("total purchases:{0}. Current balance:{1}$. Next Payout:{2}$ ",summary.totalPurchases.ToString(),summary.currentBalance.ToString(),summary.nextPayout.amount.ToString());
+                _totalpurchase.Text = String.Format("total purchases:{0}. Current balance: {1}$ ",summary.totalPurchases.ToString(),summary.currentBalance.ToString());
                 _lastupdate.Text = String.Format("last update at: {0}", DateTime.Now.ToString("HH:mm"));
             }
 

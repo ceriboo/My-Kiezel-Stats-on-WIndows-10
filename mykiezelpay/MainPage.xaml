@@ -339,7 +339,7 @@
 
               
             </Pivot>
-            <ProgressRing Name="loading" Width="200" Height="200" IsActive="True" Foreground="#FF4aa46a"/>
+            <ProgressRing Grid.RowSpan="3" Name="loading" Width="200" Height="200" IsActive="True" Foreground="#FF4aa46a"/>
 
         </Grid>
         <Grid Name="kclock" Visibility="Collapsed">
